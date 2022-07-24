@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Utils, one `. $(dirname "$(readlink -f "$0")")/mblib.sh` away
+# Utils, one `. $(dirname "$(readlink -f "$0")")/utils.sh` away
 
 # COLORS: See https://github.com/eskerda/vtfmt/
 declare -A FMT_SET=(
@@ -44,7 +44,7 @@ deps() {
     read cmd package <<<"$dep"
     package=${package:-$cmd}
     mute which "$cmd" ||
-      $MBLIB_DEPS_INSTALL_CMD $package ||
+      $UTILS_DEPS_INSTALL_CMD $package ||
       die "couldn't install $package"
   done
 }
